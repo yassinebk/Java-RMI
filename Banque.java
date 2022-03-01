@@ -11,7 +11,7 @@ class Banque extends UnicastRemoteObject implements IBanque {
 
     @Override()
     public String etatDeCompte(Compte compte) {
-        return "Personne" + compte.getPersonne() + " montant" + compte.getMontant();
+        return "Personne " + compte.getPersonne() + " montant " + compte.getMontant();
     }
 
     public void ajouterCompte(Compte compte) {

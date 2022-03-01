@@ -17,7 +17,12 @@ public class Client {
             // System.out.println("response" + response);
             // System.out.println("response 2 \t " + responsePersonne);
             Compte monCompte = stub.creerCompte(myPerson, 0);
-            System.out.println(monCompte.personne.toString() + monCompte.getMontant());
+            Compte autreCompte = stub.creerCompte(new Personne("Other", "Ben Other", 20), 1000);
+            String response = stub.etatDeCompte(monCompte);
+            System.out.println("response: " + response);
+            stub.transfertEntreCompte(autreCompte, monCompte, 500);
+            System.out.println(stub.etatDeCompte(monCompte));
+            System.out.println(stub.etatDeCompte(autreCompte));
 
         } catch (RemoteException e) {
             System.out.println(e.getMessage());
